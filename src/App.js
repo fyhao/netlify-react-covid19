@@ -5,17 +5,16 @@ import './App.css'
 
 export default class App extends Component {
   state = {
-    todos: [],
+    todos: {},
     
   }
   componentDidMount() {
 
     /* Track a page view */
     analytics.page()
-
+	this.setState({todos:{date:'a'}});
     api.readAll().then((todos) => {
-		alert(1);
-		this.setState({todos:{date:new Date().toString()}});
+		this.setState({todos:todos})
 	});
   }
   
