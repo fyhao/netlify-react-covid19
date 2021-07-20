@@ -2,7 +2,8 @@ import React, { Component } from 'react'
 import analytics from './utils/analytics'
 import api from './utils/api'
 import './App.css'
-
+import 'bootstrap/dist/css/bootstrap.min.css';
+import { Button } from 'reactstrap';
 export default class App extends Component {
   state = {
     todos: {},
@@ -23,6 +24,7 @@ export default class App extends Component {
       <div className='app'>
 		<p>Test App 1</p>
 		<p>{this.state.todos.date}</p>
+		<Button>React Bootstrap</Button>
       </div>
     )
   }
