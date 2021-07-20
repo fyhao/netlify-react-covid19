@@ -1,7 +1,5 @@
 import React, { Component } from 'react'
-import api from '..//utils/api'
 import './VideoList.css';
-import { Badge, Button } from 'reactstrap';
 import VideoCard from './VideoCard';
 export default class VideoList extends Component {
   state = {
