@@ -10,7 +10,13 @@ const covidstatsFetch = () => {
     return response.json()
   })
 }
+const covidSummaryFetch = () => {
+  return fetch('/.netlify/functions/covidsummary-fetch').then((response) => {
+    return response.json()
+  })
+}
 export default {
   readAll: readAll,
-  covidstatsFetch: covidstatsFetch
+  covidstatsFetch: covidstatsFetch,
+  covidSummaryFetch: covidSummaryFetch
 }
