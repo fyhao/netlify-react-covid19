@@ -33,6 +33,7 @@ export default class CovidStats extends Component {
 		))} 
 		</tbody>
 		</Table>
+		<p>Data source is collected from Worldometer</p>
       </div>
     )
   }
