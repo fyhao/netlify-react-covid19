@@ -1,8 +1,7 @@
 import React, { Component } from 'react'
-import analytics from '..//utils/analytics'
 import api from '..//utils/api'
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { Button,Table } from 'reactstrap';
+import { Table } from 'reactstrap';
 export default class CovidStats extends Component {
   state = {
     covidstatdata: [],
