@@ -5,6 +5,12 @@ const readAll = () => {
     return response.json()
   })
 }
+const covidstatsFetch = () => {
+  return fetch('/.netlify/functions/covidstats-fetch').then((response) => {
+    return response.json()
+  })
+}
 export default {
-  readAll: readAll
+  readAll: readAll,
+  covidstatsFetch: covidstatsFetch
 }

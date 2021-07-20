@@ -3,28 +3,40 @@ import analytics from './utils/analytics'
 import api from './utils/api'
 import './App.css'
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { Button } from 'reactstrap';
+import { Button,Table } from 'reactstrap';
 export default class App extends Component {
   state = {
-    todos: {},
+    covidstatdata: [],
     
   }
   componentDidMount() {
 
     /* Track a page view */
     analytics.page()
-	this.setState({todos:{date:'a'}});
-    api.readAll().then((todos) => {
-		this.setState({todos:todos})
+    api.covidstatsFetch().then((data) => {
+		this.setState({covidstatdata:data})
 	});
   }
   
   render() {
     return (
       <div className='app'>
-		<p>Test App 1</p>
-		<p>{this.state.todos.date}</p>
 		<Button>React Bootstrap</Button>
+		<Table>
+		<thead>
+			<tr>
+				<th>Cases</th>
+				<th>Death</th>
+				<th>Recovered</th>
+			</tr>
+		</thead>
+		<tbody>
+		{this.state.covidstatdata.map(d => (
+			<tr key={d.id}><td>{d.cases}</td><td>{d.death}</td><td>{d.recovered}</td></tr>
+		))} 
+		</tbody>
+		</Table>
+		
       </div>
     )
   }
