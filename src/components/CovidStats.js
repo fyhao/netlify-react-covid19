@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import api from '..//utils/api'
-import 'bootstrap/dist/css/bootstrap.min.css';
 import { Table } from 'reactstrap';
 export default class CovidStats extends Component {
   state = {
