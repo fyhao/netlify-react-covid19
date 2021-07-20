@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import api from '..//utils/api'
 import './CovidSummary.css';
-import { Badge, Button } from 'reactstrap';
 export default class CovidSummary extends Component {
   state = {
     summary: {}    
