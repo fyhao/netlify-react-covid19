@@ -24,11 +24,12 @@ export default class CovidStats extends Component {
 				<th>Cases</th>
 				<th>Death</th>
 				<th>Recovered</th>
+				<th>Date Time</th>
 			</tr>
 		</thead>
 		<tbody>
 		{this.state.covidstatdata.map(d => (
-			<tr key={d.id}><td>{d.cases}</td><td>{d.death}</td><td>{d.recovered}</td></tr>
+			<tr key={d.id}><td>{d.totalcases}</td><td>{d.death}</td><td>{d.recovered}</td><td>{d.datetime}</td></tr>
 		))} 
 		</tbody>
 		</Table>
