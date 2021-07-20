@@ -4,6 +4,7 @@ import './App.css'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import CovidStats from './components/CovidStats';
 import CovidSummary from './components/CovidSummary';
+import VideoList from './components/VideoList';
 export default class App extends Component {
   state = {
     
@@ -18,8 +19,24 @@ export default class App extends Component {
   render() {
     return (
       <div className='app'>
-		<CovidSummary></CovidSummary>
-		<CovidStats></CovidStats>
+		<table>
+			<tr>
+				<td colspan="2">
+					<CovidSummary></CovidSummary>
+				</td>
+			</tr>
+			<tr>
+				<td valign="top">
+					<VideoList></VideoList>
+				</td>
+				<td>
+					<CovidStats></CovidStats>
+				</td>
+			</tr>
+		</table>
+		
+		
+		
       </div>
     )
   }

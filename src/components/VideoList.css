@@ -1,0 +1,8 @@
+.video-card {
+	border:#999 solid 1px;
+	padding:5px;
+	margin:5px;
+	width:180px;
+	
+}
+.video-card p {font-size:10px;}
