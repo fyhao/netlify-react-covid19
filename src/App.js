@@ -5,6 +5,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import CovidStats from './components/CovidStats';
 import CovidSummary from './components/CovidSummary';
 import VideoList from './components/VideoList';
+import SymptomRecorder from './components/SymptomRecorder';
 export default class App extends Component {
   state = {
     
@@ -25,6 +26,12 @@ export default class App extends Component {
 					<CovidSummary></CovidSummary>
 				</td>
 			</tr>
+			<tr>
+				<td colspan="2">
+					<SymptomRecorder></SymptomRecorder>
+				</td>
+			</tr>
+			
 			<tr>
 				<td valign="top">
 					<VideoList></VideoList>

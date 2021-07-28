@@ -15,8 +15,23 @@ const covidSummaryFetch = () => {
     return response.json()
   })
 }
+const symptomrecordsfetch = () => {
+  return fetch('/.netlify/functions/symptomrecordsfetch').then((response) => {
+    return response.json()
+  })
+}
+const symptomrecordsadd = (data) => {
+  return fetch('/.netlify/functions/symptomrecordsadd',{
+	  body:JSON.stringify(data),
+	  method:'POST'
+  }).then((response) => {
+    return response.json()
+  })
+}
 export default {
   readAll: readAll,
   covidstatsFetch: covidstatsFetch,
-  covidSummaryFetch: covidSummaryFetch
+  covidSummaryFetch: covidSummaryFetch,
+  symptomrecordsfetch: symptomrecordsfetch,
+  symptomrecordsadd: symptomrecordsadd
 }

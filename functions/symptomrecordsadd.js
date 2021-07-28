@@ -1,21 +1,14 @@
 const fetch = require("node-fetch");
+
 const db = require('./utils/firebase');
 const API_URL = process.env.COVIDSTAT_APIURL;
 
 
 exports.handler = async function (event, context) {
 	
-  var mockeddata = [{"totalcases":"191712967","death":"4112792","recovered":"174567234","datetime":"2021-07-20 11:50:02"},{"totalcases":"191712967","death":"4112792","recovered":"174567234","datetime":"2021-07-20 11:40:02"}];
-  
   try {
-    const response = await fetch(API_URL);
-    var data = await response.json();
-    mockeddata = dataTransform(mockeddata);
-	data = dataTransform(data);
-	// wait for the record to be added
-	  db.collection('audit').add({
-		msg:'Request came at ' + new Date().toString()
-	  })
+    var data = JSON.parse(event.body);
+	db.collection('symptoms').add(data);
 	return { statusCode: 200, body: JSON.stringify(data) };
   } catch (error) {
     console.log(error);
