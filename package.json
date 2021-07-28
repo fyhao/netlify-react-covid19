@@ -8,6 +8,7 @@
     "bootstrap": "^5.0.2",
     "dotenv": "^10.0.0",
     "faunadb": "^2.13.1",
+    "firebase-admin": "^9.11.0",
     "markdown-magic": "^1.0.0",
     "react": "^16.14.0",
     "react-dom": "^16.14.0",
