@@ -1,5 +1,5 @@
 const fetch = require("node-fetch");
-const API_URL = 'https://api.imgshow-apps.com/admin/misc/admin_coronavirus.php?action=viewbyapionlychange';
+const API_URL = process.env.COVIDSTAT_APIURL ? process.env.COVIDSTAT_APIURL : 'https://api.imgshow-apps.com/admin/misc/admin_coronavirus.php?action=viewbyapionlychange';
   
 exports.handler = async function (event, context) {
 	
