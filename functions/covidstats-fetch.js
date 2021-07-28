@@ -14,6 +14,7 @@ exports.handler = async function (event, context) {
 	data = dataTransform(data);
 	// wait for the record to be added
 	db.request().then(function(db) {
+		if(db == null)return;
 		db.collection('audit').add({
 			msg:'Request came at ' + new Date().toString()
 		  })

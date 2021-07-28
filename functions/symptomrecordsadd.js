@@ -10,6 +10,9 @@ exports.handler = async function (event, context) {
     var data = JSON.parse(event.body);
 	
 	var db1 = await db.request();
+	if(db1 == null) {
+		return { statusCode: 200, body: JSON.stringify(data) };
+	}
 	db1.collection('symptoms').add(data);
 	
 	return { statusCode: 200, body: JSON.stringify(data) };

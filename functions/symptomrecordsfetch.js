@@ -10,6 +10,9 @@ exports.handler = async function (event, context) {
     //const response = await fetch(API_URL);
     //var data = await response.json();
 	var db1 = await db.request();
+	if(db1 == null) {
+		return { statusCode: 200, body: JSON.stringify([]) };
+	}
     var docs = await db1.collection('symptoms').get();
 	console.log(docs);
 	var data = [];
@@ -17,7 +20,7 @@ exports.handler = async function (event, context) {
 		data.push(doc.data());
 	}
 	data = dataTransform(data);
-	return { statusCode: 200, body: JSON.stringify(data) };
+	
   } catch (error) {
     console.log(error);
     return {
