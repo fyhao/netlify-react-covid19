@@ -29,7 +29,9 @@ else {
 }
 
 module.exports = {
-	request : function(fn) {
-		fn(db);
+	request : function() {
+		return new Promise((resolve,reject) => {
+			resolve(db);
+		});
 	}
 };

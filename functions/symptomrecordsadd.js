@@ -8,7 +8,10 @@ exports.handler = async function (event, context) {
 	
   try {
     var data = JSON.parse(event.body);
-	db.collection('symptoms').add(data);
+	
+	var db1 = await db.request();
+	db1.collection('symptoms').add(data);
+	
 	return { statusCode: 200, body: JSON.stringify(data) };
   } catch (error) {
     console.log(error);

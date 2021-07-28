@@ -9,7 +9,8 @@ exports.handler = async function (event, context) {
   try {
     //const response = await fetch(API_URL);
     //var data = await response.json();
-    var docs = await db.collection('symptoms').get();
+	var db1 = await db.request();
+    var docs = await db1.collection('symptoms').get();
 	console.log(docs);
 	var data = [];
 	for(const doc of docs.docs) {
