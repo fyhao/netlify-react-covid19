@@ -13,9 +13,12 @@ exports.handler = async function (event, context) {
     mockeddata = dataTransform(mockeddata);
 	data = dataTransform(data);
 	// wait for the record to be added
-	  db.collection('audit').add({
-		msg:'Request came at ' + new Date().toString()
-	  })
+	db.request(function(db) {
+		db.collection('audit').add({
+			msg:'Request came at ' + new Date().toString()
+		  })
+	});
+	  
 	return { statusCode: 200, body: JSON.stringify(data) };
   } catch (error) {
     console.log(error);

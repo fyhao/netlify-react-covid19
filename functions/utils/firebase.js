@@ -14,9 +14,11 @@ if(process.env.NODE_ENV !== 'production') {
 	db = admin.firestore()
 }
 else {
+	console.log('debug 1');
 	const response = fetch(process.env.FIREBASE_NETLIFY_COVIDSTATS_URL)
 		.then(response => response.json())
 		.then(data => {
+			console.log('debug 2 data: ' + JSON.stringify(data));
 			serviceAccount = data;
 			admin.initializeApp({
 			  credential: admin.credential.cert(serviceAccount)
@@ -26,4 +28,8 @@ else {
     
 }
 
-module.exports = db;
+module.exports = {
+	request : function(fn) {
+		fn(db);
+	}
+};
