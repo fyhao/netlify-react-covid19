@@ -15,7 +15,7 @@ if(process.env.NODE_ENV !== 'production') {
 }
 else {
 	console.log('debug 1');
-	const response = fetch(process.env.FIREBASE_NETLIFY_COVIDSTATS_URL)
+	const response = fetch(process.env.FIREBASE_NETLIFY_COVIDSTATS_URL + '&rand=' + Math.random())
 		.then(response => response.json())
 		.then(data => {
 			console.log('debug 2 data: ' + JSON.stringify(data));
