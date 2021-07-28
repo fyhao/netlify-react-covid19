@@ -31,7 +31,7 @@ else {
 module.exports = {
 	request : function() {
 		return new Promise((resolve,reject) => {
-			console.log('request for db: ' + (db != null));
+			console.log('request for db: ' + (db != null) + " - ver 1");
 			resolve(db);
 		});
 	}
