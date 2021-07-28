@@ -14,12 +14,13 @@ exports.handler = async function (event, context) {
 		return { statusCode: 200, body: JSON.stringify([]) };
 	}
     var docs = await db1.collection('symptoms').get();
-	console.log(docs);
+	
 	var data = [];
 	for(const doc of docs.docs) {
 		data.push(doc.data());
 	}
 	data = dataTransform(data);
+	console.log(data);
 	return { statusCode: 200, body: JSON.stringify(data) };
   } catch (error) {
     console.log(error);
