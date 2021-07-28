@@ -3,7 +3,7 @@ const fetch = require("node-fetch");
 var serviceAccount = null;
 if(process.env.NODE_ENV !== 'production') {
 	require('dotenv').config({ path: '.env.local' });
-	serviceAccount = require("../serviceAccountKey.json");
+	serviceAccount = JSON.parse(require('fs').readFileSync('serviceAccountKey.json'));
 }
 else {
 	serviceAccount = {
