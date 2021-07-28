@@ -1,5 +1,8 @@
 const fetch = require("node-fetch");
-const API_URL = process.env.COVIDSTAT_APIURL ? process.env.COVIDSTAT_APIURL : 'https://api.imgshow-apps.com/admin/misc/admin_coronavirus.php?action=viewbyapionlychange';
+if(process.env.NODE_ENV !== 'production') {
+	require('dotenv').config({ path: '.env.local' });
+}
+const API_URL = process.env.COVIDSTAT_APIURL;
   
 exports.handler = async function (event, context) {
 	
